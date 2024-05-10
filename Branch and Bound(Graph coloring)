@@ -1,8 +1,11 @@
+
 def is_safe(graph, v, color, colors):
     for i in range(len(graph)):
         if graph[v][i]==1 and colors[i] == color:
             return False
     return True
+#checks if it's safe to color a vertex 'v' with a given color. It checks #if any adjacent vertices of 'v' are already colored with the same color.
+
 
 def calculate_lower_bound(graph, colors, v):
     # Count the number of unique colors used in the already colored vertices
@@ -12,6 +15,7 @@ def calculate_lower_bound(graph, colors, v):
             used_colors.add(colors[i])
     return len(used_colors)
 
+#This function calculates a lower bound for the number of colors needed #to color the remaining vertices. It counts the number of unique colors #used in the already colored vertices.
 
 def graph_coloring_branch_and_bound(graph, num_colors):
     num_vertices = len(graph)
@@ -41,6 +45,10 @@ def graph_coloring_branch_and_bound(graph, num_colors):
         print("Coloring:", colors)
     else:
         print("Graph cannot be colored using", num_colors, "colors.")
+
+
+### recursively colors the vertices such that no adjacent vertices have the same color, and the number of colors used is minimized.###
+
 
 def graph_coloring_menu():
     print("Graph Coloring Problem\n")
